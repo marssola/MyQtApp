@@ -1,5 +1,14 @@
 <RCC>
     <qresource prefix="/">
         <file>main.qml</file>
+        <file>ui/pages/Search.qml</file>
+        <file>ui/pages/Messages.qml</file>
+        <file>ui/pages/MyContacts.qml</file>
+        <file>ui/navigation/HeaderBar.qml</file>
+        <file>ui/navigation/FooterBar.qml</file>
+        <file>ui/dialogs/StyleDialog.qml</file>
+        <file>ui/pages/MyAccount.qml</file>
+        <file>ui/pages/Login.qml</file>
+        <file>ui/styles/CustomTextField.qml</file>
     </qresource>
 </RCC>

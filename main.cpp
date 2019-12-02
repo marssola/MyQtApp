@@ -1,18 +1,22 @@
-#include <QGuiApplication>
+#include <QApplication>
 #include <QQmlApplicationEngine>
 #include <QQuickStyle>
 #include <QIcon>
+#include <QQmlContext>
+#include "../QModules/src/imagepicker/imagepicker.h"
 
 int main(int argc, char *argv[])
 {
-    QGuiApplication::setApplicationName("Who am I");
-    QGuiApplication::setOrganizationName("com.marssola");
-    QGuiApplication::setOrganizationName("Marssola");
-    QGuiApplication::setApplicationVersion("1.0");
-    QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-    QGuiApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
+    QApplication::setApplicationName("App");
+    QApplication::setOrganizationName("com.twodevs");
+    QApplication::setOrganizationName("2Devs");
+    QApplication::setApplicationVersion("1.0");
+    QApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
+    QApplication::setAttribute(Qt::AA_UseHighDpiPixmaps);
 
-    QGuiApplication app(argc, argv);
+    QApplication app(argc, argv);
+
+    qmlRegisterType<ImagePicker>("Qmodules.ImagePicker", 1, 0, "ImagePicker");
 
     QQmlApplicationEngine engine;
     const QUrl url(QStringLiteral("qrc:/main.qml"));
@@ -22,7 +26,7 @@ int main(int argc, char *argv[])
             QCoreApplication::exit(-1);
     }, Qt::QueuedConnection);
 
-    QIcon::setThemeSearchPaths({ ":/" });
+    QIcon::setThemeSearchPaths({":/"});
     QIcon::setThemeName("material-round");
     QQuickStyle::setStyle(":/UiKit");
     QQuickStyle::setFallbackStyle("Default");
